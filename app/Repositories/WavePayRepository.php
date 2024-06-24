@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Contracts\WavePayRepo;
+use App\Contracts\IWavePayRepo;
 
-class WavePayRepository implements WavePayRepo
+class WavePayRepository implements IWavePayRepo
 {
     public function getFields()
     {

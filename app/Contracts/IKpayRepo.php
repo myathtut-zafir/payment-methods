@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface WavePayRepo
+interface IKpayRepo
 {
     public function getFields();
     public function getValues(int $userId);

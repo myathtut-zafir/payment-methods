@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 
-use App\Contracts\KpayRepo;
+use App\Contracts\IKpayRepo;
 
-class KbzPayRepository implements KpayRepo
+class KbzPayRepository implements IKpayRepo
 {
     public function getFields()
     {

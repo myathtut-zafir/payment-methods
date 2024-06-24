@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface KpayRepo
+interface IWavePayRepo
 {
     public function getFields();
     public function getValues(int $userId);

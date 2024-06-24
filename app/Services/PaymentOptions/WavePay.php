@@ -3,12 +3,12 @@
 namespace App\Services\PaymentOptions;
 
 use App\Contracts\PaymentOption;
-use App\Contracts\WavePayRepo;
+use App\Contracts\IWavePayRepo;
 use App\Repositories\WavePayRepository;
 
 class WavePay implements PaymentOption
 {
-    private WavePayRepo $wavePayRepo;
+    private IWavePayRepo $wavePayRepo;
 
     public function __construct(WavePayRepository $wavePayRepo)
     {

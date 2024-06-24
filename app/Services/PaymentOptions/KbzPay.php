@@ -2,6 +2,7 @@
 
 namespace App\Services\PaymentOptions;
 
+use App\Contracts\IKpayRepo;
 use App\Contracts\PaymentOption;
 use App\Repositories\KbzPayRepository;
 
@@ -10,7 +11,7 @@ class KbzPay implements PaymentOption
 
     private KbzPayRepository $kbzPayRepository;
 
-    public function __construct(KbzPayRepository $kbzPayRepository)
+    public function __construct(IKpayRepo $kbzPayRepository)
     {
         $this->kbzPayRepository = $kbzPayRepository;
     }
