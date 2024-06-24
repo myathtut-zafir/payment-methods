@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Services\PaymentOptions;
+namespace App\Repositories;
 
-use App\Contracts\PaymentOption;
 use App\Contracts\WavePayRepo;
-use App\Repositories\WavePayRepository;
 
-class WavePay implements PaymentOption
+class WavePayRepository implements WavePayRepo
 {
-    private WavePayRepo $wavePayRepo;
-
-    public function __construct(WavePayRepository $wavePayRepo)
-    {
-        $this->wavePayRepo = $wavePayRepo;
-    }
-
     public function getFields()
     {
-        return $this->wavePayRepo->getFields();
+        return [
+            (object)[
+                'name' => 'bank_account_name',
+                'type' => 'text',
+                'label' => 'Bank Account Name',
+                'required' => true,
+                'style' => 'col-xl-12',
+            ],
+        ];
+
     }
 
     public function getValues(int $userId)

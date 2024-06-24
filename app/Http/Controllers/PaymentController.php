@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 
 use App\Services\PaymentOptions\KbzPay;
+use App\Services\PaymentOptions\WavePay;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
 
     private KbzPay $kbzPay;
+    private WavePay $wavePay;
 
-    public function __construct(KbzPay $kbzPay)
+    public function __construct(KbzPay $kbzPay,WavePay $wavePay)
     {
         $this->kbzPay = $kbzPay;
+        $this->wavePay = $wavePay;
     }
 
 
@@ -21,9 +24,10 @@ class PaymentController extends Controller
     {
         if ($request->payment_type == 'kpay') {
             $payment = $this->kbzPay;
-            return response()->json($payment->getFields(), 200);
+            return response()->json($payment->getFields());
         } else {
-            return response()->json(['message' => 'wave pay'], 200);
+            $payment = $this->wavePay;
+            return response()->json($payment->getFields());
         }
     }
 }
