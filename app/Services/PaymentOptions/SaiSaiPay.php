@@ -2,20 +2,25 @@
 
 namespace App\Services\PaymentOptions;
 
+use App\Contracts\ISaiSaiPayRepo;
 use App\Contracts\PaymentOption;
 use App\Contracts\IWavePayRepo;
-class WavePay implements PaymentOption
-{
-    private IWavePayRepo $wavePayRepo;
+use App\Repositories\WavePayRepository;
 
-    public function __construct(IWavePayRepo $wavePayRepo)
+class SaiSaiPay implements PaymentOption
+{
+
+
+    private ISaiSaiPayRepo $saiSaiPayRepo;
+
+    public function __construct(ISaiSaiPayRepo $saiSaiPayRepo)
     {
-        $this->wavePayRepo = $wavePayRepo;
+        $this->saiSaiPayRepo = $saiSaiPayRepo;
     }
 
     public function getFields()
     {
-        return $this->wavePayRepo->getFields();
+        return $this->saiSaiPayRepo->getFields();
     }
 
     public function getValues(int $userId)

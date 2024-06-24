@@ -2,11 +2,10 @@
 
 namespace App\Providers;
 
-use App\Contracts\IKpayRepo;
-use App\Contracts\IWavePayRepo;
-use App\Repositories\KbzPayRepository;
-use App\Repositories\WavePayRepository;
+use App\Contracts\{ISaiSaiPayRepo, IWavePayRepo, IKpayRepo, PaymentOption};
+use App\Repositories\{KbzPayRepository, SaiSaiPayRepository, WavePayRepository};
 use Illuminate\Support\ServiceProvider;
+use App\Services\PaymentOptions\{KbzPay, SaiSaiPay, WavePay};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +22,21 @@ class AppServiceProvider extends ServiceProvider
             IKpayRepo::class,
             KbzPayRepository::class
         );
+        $this->app->bind(
+            ISaiSaiPayRepo::class,
+            SaiSaiPayRepository::class
+        );
+        $this->app->bind(PaymentOption::class, function ($app) {
+            if (request()->input('payment_type') == 'kpay') {
+                return $app->make(KbzPay::class);
+            } elseif (request()->input('payment_type') == 'wavepay') {
+                return $app->make(WavePay::class);
+            } elseif (request()->input('payment_type') == 'saisaipay') {
+                return $app->make(SaiSaiPay::class);
+            } else {
+                throw new \Exception('Invalid payment type.');
+            }
+        });
     }
 
     /**
