@@ -9,4 +9,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('/payments', PaymentController::class);
+Route::get('/payments', PaymentController::class)->name('payment.show');
