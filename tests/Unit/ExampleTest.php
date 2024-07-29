@@ -2,8 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Repositories\KbzPayRepository;
 
-test('that true is true', function () {
-    expect(true)->toBeTrue();
+test('kbz repo get fields', function () {
+    $kbz=new KbzPayRepository();
+    expect($kbz->getFields())->toBeArray();
 });
