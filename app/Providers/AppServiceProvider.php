@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
             } elseif (request()->input('payment_type') == 'saisaipay') {
                 return $app->make(SaiSaiPay::class);
             } else {
-//                throw new \Exception('Invalid payment type.');
+                throw new \Exception('Invalid payment type.');
             }
         });
     }
