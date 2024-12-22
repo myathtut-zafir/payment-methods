@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GateWayController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SendPaymentController;
 use Illuminate\Http\Request;
@@ -16,3 +17,4 @@ Route::get('/payments-mail', SendPaymentController::class)->name('payment.mail')
 
 
 Route::get('/gateway', GateWayController::class);
+Route::get('/order', OrderController::class);
