@@ -18,3 +18,4 @@ Route::get('/payments-mail', SendPaymentController::class)->name('payment.mail')
 
 Route::get('/gateway', GateWayController::class);
 Route::get('/order', OrderController::class);
+Route::get('/order-pipline', OrderController::class);
