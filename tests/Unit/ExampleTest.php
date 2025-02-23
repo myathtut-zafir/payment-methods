@@ -4,7 +4,10 @@ namespace Tests\Unit;
 
 use App\Repositories\KbzPayRepository;
 
+beforeEach(function () {
+    $this->kbzPayRepository = new KbzPayRepository();
+});
 test('kbz repo get fields', function () {
-    $kbz=new KbzPayRepository();
-    expect($kbz->getFields())->toBeArray();
+
+    expect($this->kbzPayRepository->getFields())->toBeArray();
 });
