@@ -2,7 +2,6 @@
 
 namespace App\Services\Order;
 
-use App\Contracts\Cor\AbstractOrderProcessor;
 use Closure;
 use Illuminate\Http\Request;
 

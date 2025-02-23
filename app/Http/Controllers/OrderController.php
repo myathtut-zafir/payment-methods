@@ -10,11 +10,11 @@ class OrderController extends Controller
 
     public function __invoke(Request $request)
     {
-        $orderService = new OrderService();
-        return $orderService->process($request);
+//        $orderService = new OrderService();
+//        return $orderService->process($request);
         //this is pipline
-//        $orderService = new \App\Services\Order\OrderService();
-//        return $orderService->processPipline($request);
+        $orderService = new \App\Services\Order\OrderService();
+        return $orderService->processPipline($request);
 
     }
 }

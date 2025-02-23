@@ -2,15 +2,15 @@
 
 namespace App\Services\Order;
 
-use App\Contracts\Cor\AbstractOrderProcessor;
+use Closure;
 use Illuminate\Http\Request;
 
 
-class ProcessOrderSuccess extends AbstractOrderProcessor
+class ProcessOrderSuccess
 {
-    public function process(Request $request): null
+    public function process(Request $request, Closure $next)
     {
-        return "null";
+        return null;
     }
 
 }

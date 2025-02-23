@@ -9,7 +9,7 @@ use Illuminate\Pipeline\Pipeline;
 
 class OrderService
 {
-    public function processPipline(Request $request)
+    public function processPipline(Request $request): \Illuminate\Http\JsonResponse
     {
         $data = app(Pipeline::class)
             ->send($request)
