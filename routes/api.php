@@ -3,6 +3,7 @@
 use App\Http\Controllers\GateWayController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentFacadeController;
 use App\Http\Controllers\SendPaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,6 @@ Route::get('/payments-mail', SendPaymentController::class)->name('payment.mail')
 Route::get('/gateway', GateWayController::class);
 Route::get('/order', OrderController::class);
 Route::get('/order-pipline', OrderController::class);
+
+Route::get('/payments-facade', PaymentFacadeController::class);
+Route::get('/payments-facade-strategy', \App\Http\Controllers\PaymentFacadeStrategyController::class);

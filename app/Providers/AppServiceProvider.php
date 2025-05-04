@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\PaymentService;
 use App\Contracts\{ISaiSaiPayRepo, IWavePayRepo, IKpayRepo, PaymentOption};
 use App\Repositories\{KbzPayRepository, SaiSaiPayRepository, WavePayRepository};
 use Illuminate\Support\ServiceProvider;
@@ -36,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
             } else {
                 throw new \Exception('Invalid payment type.');
             }
+        });
+
+        $this->app->singleton('paymentservice', function ($app) {
+            return new PaymentService();
         });
     }
 
