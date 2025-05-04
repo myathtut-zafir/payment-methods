@@ -22,3 +22,4 @@ Route::get('/order', OrderController::class);
 Route::get('/order-pipline', OrderController::class);
 
 Route::get('/payments-facade', PaymentFacadeController::class);
+Route::get('/payments-facade-strategy', \App\Http\Controllers\PaymentFacadeStrategyController::class);
