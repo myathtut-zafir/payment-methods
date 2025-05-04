@@ -19,7 +19,9 @@ RUN docker-php-ext-install pdo pdo_pgsql pgsql zip bcmath mbstring xml exif
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-# Install Composer
+COPY ./docker/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+    # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Copy the auth.json for Composer authentication
 #COPY ./auth.json /root/.composer/auth.json
